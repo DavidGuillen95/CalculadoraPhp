@@ -1,10 +1,10 @@
-.margin{
-	margin-top: 50px;
+body{
+	background-color: black;
+	color: white;
 }
-a{
-	padding-top: 20px;
-	text-align: center;
-	font-size: 40px;
+
+}.margin{
+	margin-top: 50px;
 }
 
 .cuadro{
@@ -14,7 +14,8 @@ a{
 }
 
 .color-uno{
-	background-color: #d6d6d6
+	background-color: #d6d6d6;
+	color: black;
 }
 
 .color-dos, .color-tres{
@@ -31,4 +32,14 @@ a{
 .color-tres{
 	background-color: #f5923d;
 	
+}
+
+.color-uno, .color-tres{
+	padding-top: 20px;
+	font-size: 40px;
+}
+
+.color-uno:hover, .color-tres:hover{
+	box-shadow: inset 0px 0px 25px  darkgrey;
+	color: #4c4c4c;
 }
