@@ -43,3 +43,11 @@ body{
 	box-shadow: inset 0px 0px 25px  darkgrey;
 	color: #4c4c4c;
 }
+
+#operacionResultado{
+	padding-right: 10px;
+	width: 350px;
+	background-color: transparent;
+	border:none;
+	color: white
+}

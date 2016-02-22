@@ -1,55 +1,62 @@
 <?php
 
+  $styles = ["css/util/bootstrap.min.css","css/style.css"];
+  $scripts = ["js/util/angular.min.js", "js/app.js"];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Calculadora - PHP</title>
-        <link href="css/util/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container margin">
-          <h1 class="text-center">Calculadora con PHP</h1>
-          <div class="col-lg-12"> 
-            <div class="col-lg-4 cuadro color-dos col-sm-offset-4">
-              <p class="text-right" name="operacionResultado">0</p>
-            </div>
-          </div>
-           <div class="col-lg-12">
-            <a class="btn col-lg-1 cuadro color-uno col-sm-offset-4" name="ac">AC</a>
-            <a class="btn col-lg-1 cuadro color-uno">+/-</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="porcentaje">%</a>
-            <a class="btn col-lg-1 cuadro color-tres" name="division">÷</a>
-          </div>
-          <div class="col-lg-12">
-            <a class="btn col-lg-1 cuadro color-uno col-sm-offset-4" name="siete">7</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="ocho">8</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="nueve">9</a>
-            <a class="btn col-lg-1 cuadro color-tres" name="multiplicacion">x</a>
-          </div>
-           <div class="col-lg-12">
-            <a class="btn col-lg-1 cuadro color-uno col-sm-offset-4" name="cuatro">4</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="cinco">5</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="seis">6</a>
-            <a class="btn col-lg-1 cuadro color-tres" name="menos">-</a>
-          </div>
-           <div class="col-lg-12">
-            <a class="btn col-lg-1 cuadro color-uno col-sm-offset-4" name="uno">1</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="dos">2</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="tres">3</a>
-            <a class="btn col-lg-1 cuadro color-tres" name="mas">+</a>
-          </div>
-           <div class="col-lg-12">
-            <a class="btn col-lg-2 cuadro color-uno col-sm-offset-4" name="cero">0</a>
-            <a class="btn col-lg-1 cuadro color-uno" name="punto">.</a>
-            <a class="btn col-lg-1 cuadro color-tres" name="igual">=</a>
-          </div>
-        </div>
+  <head>
+      <meta charset="utf-8">
+      <title>Calculadora - PHP</title>
 
-        <script src="js/util/jquery.min.js"></script>
-        <script src="js/util/bootstrap.min.js"></script>
-    </body>
+<?php foreach ($styles as $style) { ?>
+      <link href="<?php echo($style); ?>" rel="stylesheet">
+<?php } ?>
+
+  </head>
+  <body ng-app="calculadoraPhp">
+    <div class="container margin" action="index.php" method="post">
+      <h1 class="text-center">Calculadora con PHP</h1>
+      <div class="col-lg-12" ng-controller="ProyectoUnoController" > 
+        <div class="col-lg-4 cuadro color-dos col-sm-offset-4">
+        <p class="text-right" id="operacionResultado">echo{resultado}</p>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <button class="btn col-lg-1 cuadro color-uno col-sm-offset-4" name="operarioBorrar" ng-submit="borrar()">AC</button>
+        <button class="btn col-lg-1 cuadro color-uno" name="operador" ng-submit="numeroNegativo">+/-</button>
+        <button class="btn col-lg-1 cuadro color-uno" name="operador" ng-submit="porcentaje">%</button>
+        <button class="btn col-lg-1 cuadro color-tres" name="operador" ng-submit="dividir">÷</button>
+      </div>
+      <div class="col-lg-12">
+        <button class="btn col-lg-1 cuadro color-uno col-sm-offset-4">7</button>
+        <button class="btn col-lg-1 cuadro color-uno">8</button>
+        <button class="btn col-lg-1 cuadro color-uno">9</button>
+        <button class="btn col-lg-1 cuadro color-tres" name="operador" ng-submit="multiplicar">x</button>
+      </div>
+      <div class="col-lg-12">
+        <button class="btn col-lg-1 cuadro color-uno col-sm-offset-4">4</button>
+        <button class="btn col-lg-1 cuadro color-uno">5</button>
+        <button class="btn col-lg-1 cuadro color-uno">6</button>
+        <button class="btn col-lg-1 cuadro color-tres" name="operador" ng-submit="restar">-</button>
+      </div>
+      <div class="col-lg-12">
+        <button class="btn col-lg-1 cuadro color-uno col-sm-offset-4">1</button>
+        <button class="btn col-lg-1 cuadro color-uno">2</button>
+        <button class="btn col-lg-1 cuadro color-uno">3</button>
+        <button class="btn col-lg-1 cuadro color-tres" name="operador" ng-submit="sumar">+</button>
+      </div>
+      <div class="col-lg-12">
+        <button class="btn col-lg-2 cuadro color-uno col-sm-offset-4">0</button>
+        <button class="btn col-lg-1 cuadro color-uno">.</button>
+        <button class="btn col-lg-1 cuadro color-tres" name="operador" ng-submit="igual">=</button>
+      </div>
+    </div>
+
+<?php foreach ($scripts as $script) { ?>
+    <script src="<?php echo($script); ?>"></script>
+<?php } ?>
+
+  </body>
 </html>
